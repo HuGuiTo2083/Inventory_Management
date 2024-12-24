@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>Gestión de Inventario</h1>
+            <ul>
+                <li><a href="#inventario">Inventario</a></li>
+                <li><a href="#agregar">Agregar Producto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inventario">
+            <h2>Inventario Actual</h2>
+            <div id="productos-container"></div>
+        </section>
+
+        <!-- Ventana emergente (Modal) -->
+        <div id="modal-editar" class="modal">
+            <div class="modal-contenido">
+                <span id="cerrar-modal" class="cerrar">&times;</span>
+                <h2>Editar Producto</h2>
+                <form id="form-editar-producto">
+                    <label for="nombre-editar">Nombre del Producto:</label>
+                    <input type="text" id="nombre-editar" required>
+
+                    <label for="cantidad-editar">Cantidad:</label>
+                    <input type="number" id="cantidad-editar" required>
+
+                    <button type="submit">Actualizar</button>
+                </form>
+            </div>
+        </div>
+
+        <section id="agregar">
+            <h2>Agregar Nuevo Producto</h2>
+            <form id="formulario-producto">
+                <div>
+                    <label for="nombre" style="margin-right: 10px;">Nombre del Producto:</label>
+                    <input type="text" id="nombre" required placeholder="Nombre del producto">
+                </div>
+                <div>
+                    <label for="cantidad" style="margin-right: 10px;">Cantidad:</label>
+                    <input type="number" id="cantidad" required min="1" placeholder="Cantidad">
+                </div>
+
+                <!-- Botón de seleccionar imagen -->
+                <div>
+                    <label style="margin-right: 10px;">Imagen del Producto:</label>
+                    <label id="test" for="imagen">Selecciona una imagen</label>
+                    <input type="file" id="imagen" accept="image/*" required class="file-input">
+                </div>
+
+
+
+
+                <!-- Caja de texto inhabilitada donde se mostrará el nombre de la imagen seleccionada -->
+                <div>
+                    <input type="text" id="imagen-nombre" disabled>
+                </div>
+
+                <!-- Botón para agregar el producto -->
+                <button type="submit">Agregar Producto</button>
+            </form>
+
+        </section>
+    </main>
+    <img src="Mesa de trabajo 1LEONES PAREJAS.png" id="imagen-fija" alt="Imagen fija">
+    <script src="script.js"></script>
+</body>
+
+</html>

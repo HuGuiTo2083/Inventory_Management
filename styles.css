@@ -1,0 +1,397 @@
+:root {
+    --color-primary: #2675aa;
+    --color-secondary: #34495e;
+    --color-accent: #3498db;
+    --color-text: #333;
+    --color-text-light: #ecf0f1;
+    --color-background: #e7f2f8;
+    --color-card: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #1e3c72, #2a5298, #3b82f6, #87a9da, #caf2ff);
+    background-size: 400% 400%;
+    animation: gradientAnimation 5s ease infinite;
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+
+
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+header {
+    background-color: var(--color-primary);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav h1 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text-light);
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background-color: var(--color-secondary);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+section {
+    background-color: var(--color-card);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-primary);
+    margin-top: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+#productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.producto {
+    background-color: var(--color-card);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.producto:hover img {
+    transform: scale(1.05);
+}
+
+.producto-info {
+    padding: 1rem;
+}
+
+.producto h3 {
+    font-family: 'Poppins', sans-serif;
+    margin: 0 0 0.5rem;
+    font-size: 1.4rem;
+    color: var(--color-primary);
+}
+
+.producto p {
+    margin: 0;
+    color: var(--color-secondary);
+}
+
+.producto-menu {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    display: none;
+    overflow: hidden;
+}
+
+.producto:hover .producto-menu {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.producto-menu button {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: var(--color-primary);
+    transition: var(--transition);
+}
+
+.producto-menu button:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+}
+
+#formulario-producto {
+    display: grid;
+    gap: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#formulario-producto label {
+    font-size: 1rem;
+    color: var(--color-primary);
+}
+
+#formulario-producto input,
+#formulario-producto button {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+#formulario-producto input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+#formulario-producto button {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#formulario-producto button:hover {
+    background-color: var(--color-primary);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.producto:hover {
+    animation: bounce 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+    }
+
+    #productos-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    #formulario-producto {
+        max-width: 90%;
+    }
+}
+
+
+/* Estilo del botón "Elegir archivo" */
+.file-input {
+    color: white;
+    display: none; /* Oculta el botón de archivo nativo */
+}
+
+label[for="imagen"]:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+label[for="imagen"]:active {
+    background-color: #1f5a77;
+    transform: translateY(1px);
+}
+
+/* Estilo personalizado para el botón de elegir archivo */
+label[for="imagen"] {
+    color: white; /* Color blanco aplicado directamente al label */
+    background-color: #3498db;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+label[for="imagen"]:active {
+    background-color: #ffffff;
+    transform: translateY(1px);
+}
+
+/* El estilo para #test debe aplicarse directamente */
+#test {
+    color: white !important; /* Usamos !important si no se aplica */
+}
+
+
+#imagen-fija {
+    position: fixed;
+    bottom: -7%;
+    left: 1%;
+    width: 15%; /* O ajusta el tamaño que desees */
+    z-index: 999; /* Asegura que la imagen esté por encima de otros elementos */
+}
+
+/* Modal - ventana emergente */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenido del Modal */
+.modal-contenido {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+/* Botón de cerrar */
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Estilo de los campos del formulario */
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo del botón */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+/* Contenedor de la imagen con la capa roja */
+.producto-imagen {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+/* Tira roja en productos agotados */
+.producto-imagen.agotado:before {
+    content: 'Agotado';
+    position: absolute;
+    bottom: 0; /* Coloca la tira en la parte inferior */
+    left: 0;
+    width: 100%; /* Cubre todo el ancho de la imagen */
+    height: 25px; /* Tamaño de la tira roja */
+    background-color: rgba(255, 0, 0, 0.7); /* Fondo rojo transparente */
+    color: white;
+    font-size: 16px; /* Tamaño de texto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    z-index: 1; /* Asegura que la tira esté encima de la imagen */
+}
+
+/* Estilo de la imagen del producto */
+.producto-imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
